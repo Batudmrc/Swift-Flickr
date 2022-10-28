@@ -9,21 +9,23 @@
 /* Begin PBXBuildFile section */
 		3B9DA8A1290C253300A0FD67 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B9DA8A0290C253300A0FD67 /* AppDelegate.swift */; };
 		3B9DA8A3290C253300A0FD67 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B9DA8A2290C253300A0FD67 /* SceneDelegate.swift */; };
-		3B9DA8A5290C253300A0FD67 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B9DA8A4290C253300A0FD67 /* ViewController.swift */; };
+		3B9DA8A5290C253300A0FD67 /* RecentPhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B9DA8A4290C253300A0FD67 /* RecentPhotosViewController.swift */; };
 		3B9DA8A8290C253300A0FD67 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B9DA8A6290C253300A0FD67 /* Main.storyboard */; };
 		3B9DA8AA290C253400A0FD67 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B9DA8A9290C253400A0FD67 /* Assets.xcassets */; };
 		3B9DA8AD290C253400A0FD67 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B9DA8AB290C253400A0FD67 /* LaunchScreen.storyboard */; };
+		3B9DA8B9290C2B8F00A0FD67 /* PhotoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B9DA8B8290C2B8F00A0FD67 /* PhotoTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		3B9DA89D290C253300A0FD67 /* Swift-Flickr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Swift-Flickr.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B9DA8A0290C253300A0FD67 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3B9DA8A2290C253300A0FD67 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		3B9DA8A4290C253300A0FD67 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		3B9DA8A4290C253300A0FD67 /* RecentPhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentPhotosViewController.swift; sourceTree = "<group>"; };
 		3B9DA8A7290C253300A0FD67 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3B9DA8A9290C253400A0FD67 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3B9DA8AC290C253400A0FD67 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3B9DA8AE290C253400A0FD67 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3B9DA8B8290C2B8F00A0FD67 /* PhotoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +58,48 @@
 		3B9DA89F290C253300A0FD67 /* Swift-Flickr */ = {
 			isa = PBXGroup;
 			children = (
+				3B9DA8B4290C258100A0FD67 /* App */,
+				3B9DA8B5290C258600A0FD67 /* Screens */,
+				3B9DA8B6290C258C00A0FD67 /* Supporting Files */,
+			);
+			path = "Swift-Flickr";
+			sourceTree = "<group>";
+		};
+		3B9DA8B4290C258100A0FD67 /* App */ = {
+			isa = PBXGroup;
+			children = (
 				3B9DA8A0290C253300A0FD67 /* AppDelegate.swift */,
 				3B9DA8A2290C253300A0FD67 /* SceneDelegate.swift */,
-				3B9DA8A4290C253300A0FD67 /* ViewController.swift */,
-				3B9DA8A6290C253300A0FD67 /* Main.storyboard */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		3B9DA8B5290C258600A0FD67 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				3B9DA8B7290C25E700A0FD67 /* RecentPhotos */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		3B9DA8B6290C258C00A0FD67 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
 				3B9DA8A9290C253400A0FD67 /* Assets.xcassets */,
 				3B9DA8AB290C253400A0FD67 /* LaunchScreen.storyboard */,
 				3B9DA8AE290C253400A0FD67 /* Info.plist */,
 			);
-			path = "Swift-Flickr";
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3B9DA8B7290C25E700A0FD67 /* RecentPhotos */ = {
+			isa = PBXGroup;
+			children = (
+				3B9DA8A4290C253300A0FD67 /* RecentPhotosViewController.swift */,
+				3B9DA8A6290C253300A0FD67 /* Main.storyboard */,
+				3B9DA8B8290C2B8F00A0FD67 /* PhotoTableViewCell.swift */,
+			);
+			path = RecentPhotos;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,7 +173,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3B9DA8A5290C253300A0FD67 /* ViewController.swift in Sources */,
+				3B9DA8B9290C2B8F00A0FD67 /* PhotoTableViewCell.swift in Sources */,
+				3B9DA8A5290C253300A0FD67 /* RecentPhotosViewController.swift in Sources */,
 				3B9DA8A1290C253300A0FD67 /* AppDelegate.swift in Sources */,
 				3B9DA8A3290C253300A0FD67 /* SceneDelegate.swift in Sources */,
 			);
@@ -288,12 +324,12 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "Swift-Flickr/Info.plist";
+				INFOPLIST_FILE = "Swift-Flickr/Supporting Files/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -301,9 +337,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "info.Swift-Flickr";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -315,12 +354,12 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "Swift-Flickr/Info.plist";
+				INFOPLIST_FILE = "Swift-Flickr/Supporting Files/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -328,9 +367,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "info.Swift-Flickr";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
