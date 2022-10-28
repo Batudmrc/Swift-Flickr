@@ -28,8 +28,19 @@ class RecentPhotosViewController: UITableViewController {
         return cell
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        <#code#>
+        performSegue(withIdentifier: "detailSegue", sender: nil)
     }
+    
+    // MARK: - Navigation
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
+        if let viewController = segue.destination as? PhotoDetailViewController {
+            // TODO: Send Selected Photo Data To Details Page
+        }
+    }
+    
 
 
 }

@@ -81,10 +81,23 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Recent Photos" id="3B2-3u-gZQ"/>
+                    <connections>
+                        <segue destination="di1-aK-NOm" kind="show" identifier="detailSegue" id="HEz-Wp-sWh"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xf2-Bg-IbH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="533.84615384615381" y="4.9763033175355451"/>
+        </scene>
+        <!--PhotoDetail-->
+        <scene sceneID="0ly-xH-Kju">
+            <objects>
+                <viewControllerPlaceholder storyboardName="PhotoDetail" id="di1-aK-NOm" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="mHI-j6-OXZ"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Qm7-C6-pby" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1511" y="-15"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="B6P-G7-GMF">
