@@ -18,7 +18,6 @@ class PhotoDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        title = "Photo Detail"
         imageViewPhoto.backgroundColor = .gray
         ownerImageView1.backgroundColor = .darkGray
         ownerNameLabel.text = "einbd"
