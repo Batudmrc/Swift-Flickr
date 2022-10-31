@@ -6,13 +6,17 @@
 //
 
 import Foundation
+
 // MARK: - Welcome
 struct Photo: Codable {
     let id, owner, secret, server: String?
     let farm: Int?
     let title: String?
     let ispublic, isfriend, isfamily: Int?
-    let dateupload, lastupdate, datetaken: String?
+    let license: String?
+    let description: Description?
+    let oWidth, oHeight, dateupload, lastupdate: String?
+    let datetaken: String?
     let datetakengranularity: Int?
     let datetakenunknown, ownername, iconserver: String?
     let iconfarm: Int?
@@ -40,10 +44,14 @@ struct Photo: Codable {
     let heightL, widthL: Int?
     let urlO: String?
     let heightO, widthO: Int?
-    let pathalias: JSONNull?
+    let pathalias: String?
 
     enum CodingKeys: String, CodingKey {
-        case id, owner, secret, server, farm, title, ispublic, isfriend, isfamily, dateupload, lastupdate, datetaken, datetakengranularity, datetakenunknown, ownername, iconserver, iconfarm, views, tags
+        case id, owner, secret, server, farm, title, ispublic, isfriend, isfamily, license
+        case description = "description"
+        case oWidth = "o_width"
+        case oHeight = "o_height"
+        case dateupload, lastupdate, datetaken, datetakengranularity, datetakenunknown, ownername, iconserver, iconfarm, views, tags
         case machineTags = "machine_tags"
         case originalsecret, originalformat, latitude, longitude, accuracy, context, media
         case mediaStatus = "media_status"
@@ -81,29 +89,11 @@ struct Photo: Codable {
     }
 }
 
-// MARK: - Encode/decode helpers
+// MARK: - Description
+struct Description: Codable {
+    let content: String?
 
-class JSONNull: Codable, Hashable {
-
-    public static func == (lhs: JSONNull, rhs: JSONNull) -> Bool {
-        return true
-    }
-
-    public var hashValue: Int {
-        return 0
-    }
-
-    public init() {}
-
-    public required init(from decoder: Decoder) throws {
-        let container = try decoder.singleValueContainer()
-        if !container.decodeNil() {
-            throw DecodingError.typeMismatch(JSONNull.self, DecodingError.Context(codingPath: decoder.codingPath, debugDescription: "Wrong type for JSONNull"))
-        }
-    }
-
-    public func encode(to encoder: Encoder) throws {
-        var container = encoder.singleValueContainer()
-        try container.encodeNil()
+    enum CodingKeys: String, CodingKey {
+        case content = "_content"
     }
 }

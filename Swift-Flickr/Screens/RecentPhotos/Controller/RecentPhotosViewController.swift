@@ -16,6 +16,8 @@ class RecentPhotosViewController: UITableViewController, UISearchResultsUpdating
                         }
         }
     }
+    
+    private var selectedPhoto: Photo?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,11 +41,10 @@ class RecentPhotosViewController: UITableViewController, UISearchResultsUpdating
                 }
             }.resume()
         }
-        
     }
     
     private func fetchRecentPhotos() {
-        guard let url = URL(string: "https://www.flickr.com/services/rest/?method=flickr.photos.getRecent&api_key=1bb785107cfbf0304f419cb0f06970ad&format=json&nojsoncallback=1&extras=owner_name,icon_server,url_n,url_z") else {
+        guard let url = URL(string: "https://www.flickr.com/services/rest/?method=flickr.photos.getRecent&api_key=1bb785107cfbf0304f419cb0f06970ad&format=json&nojsoncallback=1&extras=description,owner_name,icon_server,url_n,url_z") else {
             print("dönmedi bra")
             return }
         let request = URLRequest(url: url)
@@ -61,7 +62,7 @@ class RecentPhotosViewController: UITableViewController, UISearchResultsUpdating
     }
     
     private func searchPhotos(with text: String) {
-        guard let url = URL(string: "https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=1bb785107cfbf0304f419cb0f06970ad&text=flower&format=json&nojsoncallback=1extras=owner_name,icon_server,url_n,url_z") else {
+        guard let url = URL(string: "https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=1bb785107cfbf0304f419cb0f06970ad&text=\(text)&format=json&nojsoncallback=1extras=owner_name,icon_server,url_n,url_z") else {
             print("dönmedi bra")
             return }
         let request = URLRequest(url: url)
@@ -71,9 +72,9 @@ class RecentPhotosViewController: UITableViewController, UISearchResultsUpdating
                 debugPrint(error)
                 return
             }
-            if let data = data, let json = try? JSONSerialization.jsonObject(with: data) as? [String : Any] {
-                print(json)
-            }
+            if let data = data, let response = try? JSONDecoder().decode(PhotosResponse.self, from: data) {
+                            self.response = response
+                        }
         }.resume()
         
     }
@@ -96,8 +97,8 @@ class RecentPhotosViewController: UITableViewController, UISearchResultsUpdating
         let photo = response?.photos?.photo?[indexPath.row]
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! PhotoTableViewCell
-        cell.ownerImageView.backgroundColor = .darkGray
         cell.ownerNameLabel.text = photo?.ownername
+        cell.titleLabel.text = photo?.title
         fetchImage(with: photo?.urlN) { data in
             cell.photoImageView.image = UIImage(data: data)
         }
@@ -121,16 +122,15 @@ class RecentPhotosViewController: UITableViewController, UISearchResultsUpdating
         return cell
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedPhoto = response?.photos?.photo?[indexPath.row]
         performSegue(withIdentifier: "detailSegue", sender: nil)
     }
     
     // MARK: - Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
         if let viewController = segue.destination as? PhotoDetailViewController {
-            // TODO: Send Selected Photo Data To Details Page
+            viewController.photo = selectedPhoto
         }
     }
     
